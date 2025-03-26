@@ -12,6 +12,7 @@ CREATE TABLE "users" (
     "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "deleted_at" TIMESTAMP(3),
     "role" "Role" NOT NULL DEFAULT 'USER',
+    "is_verified_email" BOOLEAN NOT NULL DEFAULT false,
 
     CONSTRAINT "users_pkey" PRIMARY KEY ("id")
 );

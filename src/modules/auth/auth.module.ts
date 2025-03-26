@@ -6,6 +6,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtConfig } from '@src/share/configs/jwt.config';
 import { BcryptConfig } from '@src/share/configs/bcrypt.config';
+import { MailModule } from '../mail/mail.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { BcryptConfig } from '@src/share/configs/bcrypt.config';
       inject: [ConfigService],
     }),
     PrismaModule,
+    MailModule,
   ],
   controllers: [AuthController],
   providers: [AuthService, BcryptConfig],

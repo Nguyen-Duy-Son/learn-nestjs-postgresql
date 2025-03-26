@@ -23,11 +23,39 @@ model User{
   updatedAt   DateTime @default(now()) @updatedAt @map("updated_at")
   deletedAt   DateTime? @map("deleted_at")
   role        Role     @default(USER)
+  isVerifiedEmail  Boolean  @default(false) @map("is_verified_email")
 
   @@map("users")
+}
+
+model Otp{
+  id String @id @default(cuid())
+  email       String 
+  otpCode         String
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @default(now()) @updatedAt @map("updated_at")
+  deletedAt   DateTime? @map("deleted_at")
+  typeOtp     OtpType @map("type_otp")
+  purposeOtp  OtpPurpose @map("purpose_otp")
+  expiresAt   BigInt       // Thời gian hết hạn OTP
+  @@map("otps")
 }
 
 enum Role {
   ADMIN
   USER
+}
+
+enum OtpType {
+  EMAIL
+  PHONE
+}
+
+enum OtpPurpose {
+  REGISTER
+  LOGIN
+  FORGOT_PASSWORD
+  CHANGE_PASSWORD
+  CHANGE_EMAIL
+  CHANGE_PHONE
 }

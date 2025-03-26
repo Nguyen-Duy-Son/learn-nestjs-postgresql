@@ -7,6 +7,7 @@ import { HttpExceptionFilter } from './share/interceptors/error.interceptor';
 import { ConfigModule } from '@nestjs/config';
 import appConfig from './share/configs/app.config';
 import { PrismaModule } from './modules/prisma/prisma.module';
+import { MailModule } from './modules/mail/mail.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { PrismaModule } from './modules/prisma/prisma.module';
     AuthModule,
     PrismaModule,
     UserModule,
+    MailModule,
   ],
   providers: [
     // Add providers here

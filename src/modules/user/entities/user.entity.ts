@@ -18,4 +18,6 @@ export class UserEntity {
   deletedAt: Date;
   @Expose()
   role: Role;
+  @Expose()
+  isVerifiedEmail: boolean;
 }
