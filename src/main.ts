@@ -21,6 +21,8 @@ async function bootstrap() {
     credentials: false,
   });
 
+  app.set('trust proxy', 1);
+
   app.use(rateLimit({ windowMs: 1000, limit: 20 }));
 
   app.useStaticAssets('static', { prefix: '/static' });

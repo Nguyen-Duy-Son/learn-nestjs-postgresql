@@ -17,7 +17,7 @@ model User{
   id String @id @default(cuid())
   fullName        String    @map("full_name") 
   email       String   @unique
-  address     String 
+  address     String  @default("")
   password    String
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @default(now()) @updatedAt @map("updated_at")

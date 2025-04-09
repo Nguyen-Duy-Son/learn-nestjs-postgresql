@@ -10,7 +10,7 @@ export class RegisterRequestDto {
   @IsString()
   @IsNotEmpty()
   @Matches(/^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/, {
-    message: 'Password phải có ít nhất 8 ký tự, bao gồm chữ hoa và ký tự đặc biệt!',
+    message: 'Password phải có ít nhất 8 ký tự, bao gồm ít nhất 1 chữ hoa và 1 ký tự đặc biệt!',
   })
   password: string;
 
@@ -20,7 +20,7 @@ export class RegisterRequestDto {
 
   @IsString()
   @IsOptional()
-  address: string;
+  address?: string;
 
   @IsDate()
   @IsOptional()
